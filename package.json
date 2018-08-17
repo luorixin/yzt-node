@@ -4,7 +4,9 @@
   "description": "yzt后台",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "babel-node ./bin/www",
+    "test": "./node_modules/.bin/mocha -t 10000 --compilers js:babel-core/register --recursive --reporter mochawesome",
+    "apidoc": "./node_modules/.bin/apidoc -i controllers/ -o public/apidoc"
   },
   "repository": {
     "type": "git",
