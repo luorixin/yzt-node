@@ -12,6 +12,7 @@ class Middlewares{
 	 * get token        
 	 */
 	getToken(headers) {
+		console.log(headers+"===========123123123123123")
 		if (headers && headers.authorization) {
 			const authorization = headers.authorization
 			const part = authorization.split(' ')
@@ -28,6 +29,7 @@ class Middlewares{
 	 * Middleware for token verification       
 	 */
 	verifyToken(req, res, next) {
+		console.log(123)
 		const token = this.getToken(req.headers)
 
 		this.redisClient.get(token, (err, reply) => {

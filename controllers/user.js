@@ -10,6 +10,7 @@ class User{
 			app,
 			model:proxy.user
 		})
+		this.init()
 	}
 
 	init(){
@@ -308,7 +309,7 @@ class User{
 		const newpwd = req.body.newpwd
 			
 		if (oldpwd && newpwd) {
-			this.model.findByNameAsync(req.user.username)
+			this.model.findByName(req.user.username)
 			.then(doc => {
 				if (!doc) return res.tools.setJson(1, '用户不存在或已删除')
 				if (doc.password !== res.jwt.setMd5(oldpwd)) return res.tools.setJson(1, '密码错误')
@@ -414,8 +415,9 @@ class User{
 		const username = config.superAdmin.username
 		const password = config.superAdmin.password
 
-		this.model.findByNameAsync(username)
+		this.model.findByName(username)
 		.then(doc => {
+			console.log(doc)
 			if (!doc) return this.model.newAndSave({
 				username: username, 
 				password: jwt.setMd5(password), 
@@ -453,7 +455,7 @@ class User{
 
 		if (!username || !password) return res.tools.setJson(1, '用户名或密码错误')
 		
-		this.model.findByNameAsync(username)
+		this.model.findByName(username)
 		.then(doc => {
 			if (!doc) return this.model.newAndSave({
 				username: username, 
@@ -461,7 +463,11 @@ class User{
 			})
 			return res.tools.setJson(1, '用户名已存在')
 		})
-		.then(doc => res.tools.setJson(0, '注册成功'))
+		.then(doc => {
+			if (doc && doc._id) return res.tools.setJson(0, '注册成功', {
+				token: res.jwt.setToken(doc._id)
+			})
+		})
 		.catch(err => next(err))
 	}
 
@@ -494,12 +500,13 @@ class User{
 	signIn(req, res, next) {
 		const username = req.body.username
 		const password = req.body.password
-		
+
 		if (!username || !password) return res.tools.setJson(1, '用户名或密码错误')	
 		if (req.body.code !== req.session.code) return res.tools.setJson(1, '验证码错误')
-
-		this.model.getAuthenticated(username, password)
+		// console.log(this.model)
+		this.model.model.getAuthenticated(username, password)
 		.then(doc => {
+			console.log(doc)
 			switch (doc) {
 	            case 0:
 	            	res.tools.setJson(1, '用户名或密码错误')

@@ -10,10 +10,12 @@ export default {
 	},
 	redis: {
 		development: {
-			connectionString: 'redis://127.0.0.1:6379'
+			connectionString: 'redis://127.0.0.1:6379',
+			password:123456
 		},
 		production: {
 			connectionString: 'redis://127.0.0.1:6379',
+			password:123456
 		}
 	},
 	upload: {

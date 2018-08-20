@@ -1,6 +1,6 @@
 import bluebird from 'bluebird'
 import mongoose from 'mongoose'
-import mongoosemise from 'mongoosemise'
+import mongoomise from 'mongoomise'
 
 class Mongo{
 	constructor(app,config){
@@ -27,6 +27,8 @@ class Mongo{
 			.on('error',err => console.log('---mongo connect fail--'))
 			.on('open',err => console.log('----mongo connect success ---'))
 
-		mongoosemise.promisifyAll(mongoose, bluebird)
+		mongoomise.promisifyAll(mongoose, bluebird)
 	}
 }
+
+export default Mongo
