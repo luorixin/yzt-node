@@ -5,7 +5,7 @@ export default {
 			connectionString: 'mongodb://127.0.0.1:27017/yzt'
 		},
 		production: {
-			connectionString: 'mongodb://127.0.0.1:27017/yzt'
+			connectionString: 'mongodb://47.52.231.46:27017/yzt'
 		}
 	},
 	redis: {
@@ -14,7 +14,7 @@ export default {
 			password:123456
 		},
 		production: {
-			connectionString: 'redis://127.0.0.1:6379',
+			connectionString: 'redis://47.52.231.46:6379',
 			password:123456
 		}
 	},
