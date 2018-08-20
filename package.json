@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node ./bin/www",
+    "start_pro": "NODE_ENV=production PORT=81 babel-node ./bin/www",
     "test": "./node_modules/.bin/mocha -t 10000 --compilers js:babel-core/register --recursive --reporter mochawesome",
     "apidoc": "./node_modules/.bin/apidoc -i controllers/ -o public/apidoc"
   },
