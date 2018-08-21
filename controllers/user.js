@@ -99,7 +99,7 @@ class User{
 
 		Promise.all([
 			this.model.countAsync(query), 
-			this.model.findAsync(params), 
+			this.model.getAll(query, {}, opts), 
 		])
 		.then(docs => {
 			res.tools.setJson(0, '调用成功', {

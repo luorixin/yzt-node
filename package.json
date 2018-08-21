@@ -4,8 +4,10 @@
   "description": "yzt后台",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./bin/www",
-    "start_pro": "NODE_ENV=production PORT=81 babel-node ./bin/www",
+    "start": "pm2 start ./bin/index.js --node-args='--harmony' --name 'yzt后台'",
+    "start_pro": "NODE_ENV=production PORT=81 pm2 start ./bin/index.js --node-args='--harmony' --name 'yzt后台'",
+    "stop":"pm2 stop 'yzt后台'",
+    "status":"pm2 status",
     "test": "./node_modules/.bin/mocha -t 10000 --compilers js:babel-core/register --recursive --reporter mochawesome",
     "apidoc": "./node_modules/.bin/apidoc -i controllers/ -o public/apidoc"
   },

@@ -1,1 +1,1 @@
-define({  "name": "微信小程序-小商城后台",  "version": "0.1.0",  "description": "API接口文档",  "apidoc": "0.2.0",  "sampleUrl": "/api",  "generator": {    "name": "apidoc",    "time": "2018-08-20T08:03:47.778Z",    "url": "http://apidocjs.com",    "version": "0.16.1"  }});
+define({  "name": "微信小程序-yzt后台",  "version": "0.1.0",  "description": "API接口文档",  "apidoc": "0.2.0",  "sampleUrl": "/api",  "generator": {    "name": "apidoc",    "time": "2018-08-20T08:03:47.778Z",    "url": "http://apidocjs.com",    "version": "0.16.1"  }});
