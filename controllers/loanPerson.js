@@ -213,8 +213,6 @@ class LoanPerson{
 		const body = {
 			name  : req.body.name, 
 			tel:req.body.tel,
-			id_card : req.body.id_card, 
-			social_code: req.body.social_code, 
 			stock_percent: req.body.stock_percent, 
 			address_province : req.body.address_province, 
 			address_city : req.body.address_city, 
@@ -223,7 +221,12 @@ class LoanPerson{
 			company_name : req.body.company_name, 
 			create_user : req.body.create_user, 
 		}
-
+		if (req.id_card) {
+			body.id_card = req.body.id_card
+		};
+		if (req.social_code) {
+			body.social_code = req.body.social_code
+		};
 		this.model.post(body)
 		.then(doc => res.tools.setJson(0, '新增成功', {_id: doc._id}))
 		.catch(err => next(err))
@@ -285,9 +288,7 @@ class LoanPerson{
 
 		const body = {
 			name  : req.body.name, 
-			id_card : req.body.id_card, 
 			tel:req.body.tel,
-			social_code: req.body.social_code, 
 			stock_percent: req.body.stock_percent, 
 			address_province : req.body.address_province, 
 			address_city : req.body.address_city, 
@@ -296,6 +297,12 @@ class LoanPerson{
 			company_name : req.body.company_name, 
 			create_user : req.body.create_user, 
 		}
+		if (req.id_card) {
+			body.id_card = req.body.id_card
+		};
+		if (req.social_code) {
+			body.social_code = req.body.social_code
+		};
 		this.model.put(query, body)
 		.then(doc => {
 			if (!doc) return res.tools.setJson(1, '资源不存在或已删除')
