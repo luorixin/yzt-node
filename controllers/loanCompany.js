@@ -80,12 +80,12 @@ class LoanCompany{
 			limit: req.query.limit
 		}
 
-		if (req.query.type) {
-			query.types = req.query.type
+		if (req.query.loanPersonId) {
+			query.loan_person = req.query.loanPersonId
 		}
 
-		if (req.query.keyword) {
-			query.name = req.query.keyword
+		if (req.query.name) {
+			query.name = req.query.name
 		}
 
 		const params = {

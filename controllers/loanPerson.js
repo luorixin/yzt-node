@@ -76,18 +76,17 @@ class LoanPerson{
 	 */	
 	getAll(req, res, next) {
 		const query = {}
-
 		const opts = {
 			page : req.query.page, 
 			limit: req.query.limit
 		}
 
-		if (req.query.type) {
-			query.types = req.query.type
+		if (req.query.userId) {
+			query.create_user = req.query.userId
 		}
 
-		if (req.query.keyword) {
-			query.name = req.query.keyword
+		if (req.query.name) {
+			query.name = req.query.name
 		}
 
 		const params = {

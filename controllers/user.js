@@ -465,7 +465,8 @@ class User{
 		})
 		.then(doc => {
 			if (doc && doc._id) return res.tools.setJson(0, '注册成功', {
-				token: res.jwt.setToken(doc._id)
+				token: res.jwt.setToken(doc._id),
+				userId:doc._id,
 			})
 		})
 		.catch(err => next(err))
@@ -518,7 +519,8 @@ class User{
 	                res.tools.setJson(1, '账号已被锁定，请等待两小时解锁后重新尝试登录')
 	                break
 	            default: res.tools.setJson(0, '登录成功', {
-					token: res.jwt.setToken(doc._id)
+					token: res.jwt.setToken(doc._id),
+					userId:doc._id,
 				})
 	        }
 		})
