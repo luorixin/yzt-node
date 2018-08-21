@@ -295,7 +295,6 @@ class LoanPerson{
 			address_district : req.body.address_district, 
 			address_detail : req.body.address_detail, 
 			company_name : req.body.company_name, 
-			create_user : req.body.create_user, 
 		}
 		if (req.id_card) {
 			body.id_card = req.body.id_card
