@@ -212,6 +212,7 @@ class LoanPerson{
 	post(req, res, next) {
 		const body = {
 			name  : req.body.name, 
+			tel:req.body.tel,
 			id_card : req.body.id_card, 
 			social_code: req.body.social_code, 
 			stock_percent: req.body.stock_percent, 
@@ -285,6 +286,7 @@ class LoanPerson{
 		const body = {
 			name  : req.body.name, 
 			id_card : req.body.id_card, 
+			tel:req.body.tel,
 			social_code: req.body.social_code, 
 			stock_percent: req.body.stock_percent, 
 			address_province : req.body.address_province, 
