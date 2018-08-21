@@ -61,6 +61,8 @@ class LoanCompany{
 	 *       	"_id": "_id",
 	 *       	"name": "name",
 	 *       	"product": "product",
+	 *       	"spot_amount": "spot_amount",
+	 *       	"sell_amount": "sell_amount",
 	 *       	"address_province": "address_province",
 	 *       	"address_city": "address_city",
 	 *       	"address_district": "address_district",
@@ -137,6 +139,8 @@ class LoanCompany{
 	 *       	"_id": "_id",
 	 *       	"name": "name",
 	 *       	"product": "product",
+	 *       	"spot_amount": "spot_amount",
+	 *       	"sell_amount": "sell_amount",
 	 *       	"address_province": "address_province",
 	 *       	"address_city": "address_city",
 	 *       	"address_district": "address_district",
@@ -178,6 +182,8 @@ class LoanCompany{
 	 *
 	 * @apiParam {String} name 申请人姓名
 	 * @apiParam {Array} product 企业主营产品
+	 * @apiParam {String} spot_amount 垫付金额
+	 * @apiParam {String} sell_amount 销售额
 	 * @apiParam {String} address_province 家庭地址
 	 * @apiParam {String} address_city 家庭地址
 	 * @apiParam {String} address_district 家庭地址
@@ -207,6 +213,8 @@ class LoanCompany{
 		const body = {
 			name  : req.body.name, 
 			product : req.body.product, 
+			spot_amount:req.body.spot_amount,
+			sell_amount:req.body.sell_amount,
 			address_province : req.body.address_province, 
 			address_city : req.body.address_city, 
 			address_district : req.body.address_district, 
@@ -229,6 +237,8 @@ class LoanCompany{
 	 * @apiParam {String} id 资源ID
 	 * @apiParam {String} name 申请人姓名
 	 * @apiParam {Array} product 企业主营产品
+	 * @apiParam {String} spot_amount 垫付金额
+	 * @apiParam {String} sell_amount 销售额
 	 * @apiParam {String} address_province 家庭地址
 	 * @apiParam {String} address_city 家庭地址
 	 * @apiParam {String} address_district 家庭地址
@@ -253,6 +263,8 @@ class LoanCompany{
 	 *       	"_id": "_id",
 	 *       	"name": "name",
 	 *       	"product": "product",
+	 *       	"spot_amount": "spot_amount",
+	 *       	"sell_amount": "sell_amount",
 	 *       	"address_province": "address_province",
 	 *       	"address_city": "address_city",
 	 *       	"address_district": "address_district",
@@ -272,12 +284,13 @@ class LoanCompany{
 		const body = {
 			name  : req.body.name, 
 			product : req.body.product, 
+			spot_amount:req.body.spot_amount,
+			sell_amount:req.body.sell_amount,
 			address_province : req.body.address_province, 
 			address_city : req.body.address_city, 
 			address_district : req.body.address_district, 
 			address_detail : req.body.address_detail, 
 			sales_customer : req.body.sales_customer, 
-			loan_person : req.body.loan_person,
 		}
 		this.model.put(query, body)
 		.then(doc => {

@@ -5,6 +5,8 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 const Schema = mongoose.Schema({
 	name: String,
 	product:Array,
+	spot_amount:Number,
+	sell_amount:Number,
 	address_province:String,
 	address_city:String,
 	address_district:String,
