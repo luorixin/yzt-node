@@ -61,6 +61,9 @@ class LoanPerson{
 	 *       	"_id": "_id",
 	 *       	"name": "name",
 	 *       	"id_card": "id_card",
+	 *       	"id_card_pic_front": "id_card_pic_front",
+	 *       	"id_card_pic_back": "id_card_pic_back",
+	 *       	"status": "status",
 	 *       	"social_code": "social_code",
 	 *       	"stock_percent": "stock_percent",
 	 *       	"address_province": "address_province",
@@ -138,6 +141,9 @@ class LoanPerson{
 	 *       	"_id": "_id",
 	 *       	"name": "name",
 	 *       	"id_card": "id_card",
+	 *       	"id_card_pic_front": "id_card_pic_front",
+	 *       	"id_card_pic_back": "id_card_pic_back",
+	 *       	"status": "status",
 	 *       	"social_code": "social_code",
 	 *       	"stock_percent": "stock_percent",
 	 *       	"address_province": "address_province",
@@ -182,6 +188,9 @@ class LoanPerson{
 	 * @apiParam {String} name 申请人姓名
 	 * @apiParam {Number} tel 申请人手机号码
 	 * @apiParam {String} id_card 申请人身份证
+	 * @apiParam {String} id_card_pic_front 申请人身份证正面照片
+	 * @apiParam {String} id_card_pic_back 申请人身份证反面照片
+	 * @apiParam {Number} status 申请人状态
 	 * @apiParam {String} social_code 申请人社会代码
 	 * @apiParam {String} stock_percent 股份是否占比超过40%
 	 * @apiParam {String} address_province 家庭地址
@@ -224,6 +233,15 @@ class LoanPerson{
 		if (req.id_card) {
 			body.id_card = req.body.id_card
 		};
+		if (req.id_card_pic_front) {
+			body.id_card_pic_front = req.body.id_card_pic_front
+		};
+		if (req.id_card_pic_back) {
+			body.id_card_pic_back = req.body.id_card_pic_back
+		};
+		if (req.status) {
+			body.status = req.body.status
+		};
 		if (req.social_code) {
 			body.social_code = req.body.social_code
 		};
@@ -242,6 +260,9 @@ class LoanPerson{
 	 * @apiParam {String} name 申请人姓名
 	 * @apiParam {Number} tel 申请人手机号码
 	 * @apiParam {String} id_card 申请人身份证
+	 * @apiParam {String} id_card_pic_front 申请人身份证正面照片
+	 * @apiParam {String} id_card_pic_back 申请人身份证反面照片
+	 * @apiParam {Number} status 申请人状态
 	 * @apiParam {String} social_code 申请人社会代码
 	 * @apiParam {String} stock_percent 股份是否占比超过40%
 	 * @apiParam {String} address_province 家庭地址
@@ -269,6 +290,9 @@ class LoanPerson{
 	 *       	"name": "name",
 	 *       	"id_card": "id_card",
 	 *       	"social_code": "social_code",
+	 *       	"id_card_pic_front": "id_card_pic_front",
+	 *       	"id_card_pic_back": "id_card_pic_back",
+	 *       	"status": "status",
 	 *       	"stock_percent": "stock_percent",
 	 *       	"address_province": "address_province",
 	 *       	"address_city": "address_city",
@@ -287,17 +311,43 @@ class LoanPerson{
 		}
 
 		const body = {
-			name  : req.body.name, 
-			tel:req.body.tel,
-			stock_percent: req.body.stock_percent, 
-			address_province : req.body.address_province, 
-			address_city : req.body.address_city, 
-			address_district : req.body.address_district, 
-			address_detail : req.body.address_detail, 
-			company_name : req.body.company_name, 
 		}
+
+		if (req.name) {
+			body.name = req.body.name
+		};
+		if (req.tel) {
+			body.tel = req.body.tel
+		};
+		if (typeof req.stock_percent != 'undefined' && req.stock_percent!='') {
+			body.stock_percent = req.body.stock_percent
+		};
+		if (req.address_province) {
+			body.address_province = req.body.address_province
+		};
+		if (req.address_city) {
+			body.address_city = req.body.address_city
+		};
+		if (req.address_district) {
+			body.address_district = req.body.address_district
+		};
+		if (req.address_detail) {
+			body.address_detail = req.body.address_detail
+		};
+		if (req.company_name) {
+			body.company_name = req.body.company_name
+		};
 		if (req.id_card) {
 			body.id_card = req.body.id_card
+		};
+		if (req.id_card_pic_front) {
+			body.id_card_pic_front = req.body.id_card_pic_front
+		};
+		if (req.id_card_pic_back) {
+			body.id_card_pic_back = req.body.id_card_pic_back
+		};
+		if (typeof req.status != 'undefined' && req.status!='') {
+			body.status = req.body.status
 		};
 		if (req.social_code) {
 			body.social_code = req.body.social_code

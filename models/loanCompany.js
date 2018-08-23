@@ -7,6 +7,9 @@ const Schema = mongoose.Schema({
 	product:Array,
 	spot_amount:Number,
 	sell_amount:Number,
+	business_licence:String,
+	opening_permission:String,
+	business_permission:String,
 	address_province:String,
 	address_city:String,
 	address_district:String,
@@ -16,6 +19,10 @@ const Schema = mongoose.Schema({
 		ref:"loanPerson"
 	},
 	sales_customer:Array,
+	status:{
+		type:Number,
+		default:0
+	},
 	create_at: {
 		type   : Date,
 		default: Date.now(),

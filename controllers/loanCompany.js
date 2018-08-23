@@ -63,6 +63,9 @@ class LoanCompany{
 	 *       	"product": "product",
 	 *       	"spot_amount": "spot_amount",
 	 *       	"sell_amount": "sell_amount",
+	 *       	"business_licence": "business_licence",
+	 *       	"opening_permission": "opening_permission",
+	 *       	"business_permission": "business_permission",
 	 *       	"address_province": "address_province",
 	 *       	"address_city": "address_city",
 	 *       	"address_district": "address_district",
@@ -141,6 +144,9 @@ class LoanCompany{
 	 *       	"product": "product",
 	 *       	"spot_amount": "spot_amount",
 	 *       	"sell_amount": "sell_amount",
+	 *       	"business_licence": "business_licence",
+	 *       	"opening_permission": "opening_permission",
+	 *       	"business_permission": "business_permission",
 	 *       	"address_province": "address_province",
 	 *       	"address_city": "address_city",
 	 *       	"address_district": "address_district",
@@ -184,6 +190,9 @@ class LoanCompany{
 	 * @apiParam {Array} product 企业主营产品
 	 * @apiParam {String} spot_amount 垫付金额
 	 * @apiParam {String} sell_amount 销售额
+	 * @apiParam {String} business_licence 营业执照照片
+	 * @apiParam {String} opening_permission 开户许可证
+	 * @apiParam {String} business_permission 经营许可证
 	 * @apiParam {String} address_province 家庭地址
 	 * @apiParam {String} address_city 家庭地址
 	 * @apiParam {String} address_district 家庭地址
@@ -222,7 +231,15 @@ class LoanCompany{
 			sales_customer : req.body.sales_customer, 
 			loan_person : req.body.loan_person, 
 		}
-
+		if (req.body.business_licence) {
+			body.business_licence = req.body.business_licence
+		};
+		if (req.body.opening_permission) {
+			body.opening_permission = req.body.opening_permission
+		};
+		if (req.body.business_permission) {
+			body.business_permission = req.body.business_permission
+		};
 		this.model.post(body)
 		.then(doc => res.tools.setJson(0, '新增成功', {_id: doc._id}))
 		.catch(err => next(err))
@@ -239,6 +256,9 @@ class LoanCompany{
 	 * @apiParam {Array} product 企业主营产品
 	 * @apiParam {String} spot_amount 垫付金额
 	 * @apiParam {String} sell_amount 销售额
+	 * @apiParam {String} business_licence 营业执照照片
+	 * @apiParam {String} opening_permission 开户许可证
+	 * @apiParam {String} business_permission 经营许可证
 	 * @apiParam {String} address_province 家庭地址
 	 * @apiParam {String} address_city 家庭地址
 	 * @apiParam {String} address_district 家庭地址
@@ -265,6 +285,9 @@ class LoanCompany{
 	 *       	"product": "product",
 	 *       	"spot_amount": "spot_amount",
 	 *       	"sell_amount": "sell_amount",
+	 *       	"business_licence": "business_licence",
+	 *       	"opening_permission": "opening_permission",
+	 *       	"business_permission": "business_permission",
 	 *       	"address_province": "address_province",
 	 *       	"address_city": "address_city",
 	 *       	"address_district": "address_district",
@@ -282,16 +305,44 @@ class LoanCompany{
 		}
 
 		const body = {
-			name  : req.body.name, 
-			product : req.body.product, 
-			spot_amount:req.body.spot_amount,
-			sell_amount:req.body.sell_amount,
-			address_province : req.body.address_province, 
-			address_city : req.body.address_city, 
-			address_district : req.body.address_district, 
-			address_detail : req.body.address_detail, 
-			sales_customer : req.body.sales_customer, 
 		}
+		if (req.body.name) {
+			body.name = req.body.name
+		};
+		if (req.body.product) {
+			body.product = req.body.product
+		};
+		if (typeof req.body.spot_amount !='undefined' && req.body.spot_amount!='') {
+			body.spot_amount = req.body.spot_amount
+		};
+		if (typeof req.body.sell_amount !='undefined' && req.body.sell_amount!='') {
+			body.sell_amount = req.body.sell_amount
+		};
+		if (req.body.address_province) {
+			body.address_province = req.body.address_province
+		};
+		if (req.body.address_city) {
+			body.address_city = req.body.address_city
+		};
+		if (req.body.address_district) {
+			body.address_district = req.body.address_district
+		};
+		if (req.body.address_detail) {
+			body.address_detail = req.body.address_detail
+		};
+		if (req.body.sales_customer) {
+			body.sales_customer = req.body.sales_customer
+		};
+		if (req.body.business_licence) {
+			body.business_licence = req.body.business_licence
+		};
+		if (req.body.opening_permission) {
+			body.opening_permission = req.body.opening_permission
+		};
+		if (req.body.business_permission) {
+			body.business_permission = req.body.business_permission
+		};
+
 		this.model.put(query, body)
 		.then(doc => {
 			if (!doc) return res.tools.setJson(1, '资源不存在或已删除')
