@@ -6,6 +6,8 @@ const Schema = mongoose.Schema({
 	name:String,
 	tel:Number,
 	id_card:String,
+	id_card_pic_front:String,
+	id_card_pic_back:String,
 	social_code:Number,
 	stock_percent:Boolean,
 	address_province:String,
@@ -13,6 +15,10 @@ const Schema = mongoose.Schema({
 	address_district:String,
 	address_detail:String,
 	company_name:String,
+	status:{
+		type:Number,
+		default:0,
+	},
 	create_user:{
 		type:ObjectId,
 		ref:'user',

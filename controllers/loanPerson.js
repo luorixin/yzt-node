@@ -230,19 +230,19 @@ class LoanPerson{
 			company_name : req.body.company_name, 
 			create_user : req.body.create_user, 
 		}
-		if (req.id_card) {
+		if (req.body.id_card) {
 			body.id_card = req.body.id_card
 		};
-		if (req.id_card_pic_front) {
+		if (req.body.id_card_pic_front) {
 			body.id_card_pic_front = req.body.id_card_pic_front
 		};
-		if (req.id_card_pic_back) {
+		if (req.body.id_card_pic_back) {
 			body.id_card_pic_back = req.body.id_card_pic_back
 		};
-		if (req.status) {
+		if (typeof req.body.status!='undefined' && req.body.status!='') {
 			body.status = req.body.status
 		};
-		if (req.social_code) {
+		if (req.body.social_code) {
 			body.social_code = req.body.social_code
 		};
 		this.model.post(body)
@@ -313,45 +313,46 @@ class LoanPerson{
 		const body = {
 		}
 
-		if (req.name) {
+		if (req.body.name) {
 			body.name = req.body.name
 		};
-		if (req.tel) {
+		if (req.body.tel) {
 			body.tel = req.body.tel
 		};
-		if (typeof req.stock_percent != 'undefined' && req.stock_percent!='') {
+		if (typeof req.body.stock_percent != 'undefined' && req.body.stock_percent!='') {
 			body.stock_percent = req.body.stock_percent
 		};
-		if (req.address_province) {
+		if (req.body.address_province) {
 			body.address_province = req.body.address_province
 		};
-		if (req.address_city) {
+		if (req.body.address_city) {
 			body.address_city = req.body.address_city
 		};
-		if (req.address_district) {
+		if (req.body.address_district) {
 			body.address_district = req.body.address_district
 		};
-		if (req.address_detail) {
+		if (req.body.address_detail) {
 			body.address_detail = req.body.address_detail
 		};
-		if (req.company_name) {
+		if (req.body.company_name) {
 			body.company_name = req.body.company_name
 		};
-		if (req.id_card) {
+		if (req.body.id_card) {
 			body.id_card = req.body.id_card
 		};
-		if (req.id_card_pic_front) {
+		if (req.body.id_card_pic_front) {
 			body.id_card_pic_front = req.body.id_card_pic_front
 		};
-		if (req.id_card_pic_back) {
+		if (req.body.id_card_pic_back) {
 			body.id_card_pic_back = req.body.id_card_pic_back
 		};
-		if (typeof req.status != 'undefined' && req.status!='') {
+		if (typeof req.body.status != 'undefined' && req.body.status!='') {
 			body.status = req.body.status
 		};
-		if (req.social_code) {
+		if (req.body.social_code) {
 			body.social_code = req.body.social_code
 		};
+
 		this.model.put(query, body)
 		.then(doc => {
 			if (!doc) return res.tools.setJson(1, '资源不存在或已删除')
